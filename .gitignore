@@ -1,0 +1,10 @@
+Medical-MNIST-Classification/hints.txt
+Medical-MNIST-Classification/.ipynb_checkpoints/
+*.ipynb_checkpoints
+Medical-MNIST-Classification/images/
+Medical-MNIST-Classification/resized/
+*.jpg
+*.jpeg
+*.DS_Store
+MedNIST-checkpoint.ipynb
+
