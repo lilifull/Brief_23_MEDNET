@@ -1,0 +1,1 @@
+MODEL_PATH = 'mednet_app/models/cnn_model.pt'

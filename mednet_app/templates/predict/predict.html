@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Prédiction</h2>
+    <div class="predict">
+        <p>ID: {{class_id}}</p>
+        <p>Classe: {{class_name}}</p>
+    </div>
+    
+    <a href="{{ url_for('home.index')}}">home</a>
+{% endblock %}
