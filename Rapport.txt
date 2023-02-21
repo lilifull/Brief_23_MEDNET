@@ -1,0 +1,48 @@
+Rapport d'amélioration d'un modèle CNN
+
+J'avais pour mission d'améliorer le score d'un modèle CNN de classification d'image déjà existant.
+
+Score à battre : 99.32% d'accuracy, avec 39 erreurs et environ 3min de temps d'entrainement.
+
+Correct predictions:  5701 of 5740
+Confusion Matrix:
+[[958   0   0   8   1   5]
+ [  0 895   3   0   0   0]
+ [  0   0 982   0  10   0]
+ [  0   0   0 962   1   0]
+ [  0   0   8   0 931   0]
+ [  1   0   0   2   0 973]]
+['Hand', 'BreastMRI', 'ChestCT', 'HeadCT', 'AbdomenCT', 'CXR']
+
+L'amélioration du modèle s'est fait en plusieurs étapes :
+
+1) Tunning des hyperparamètres 
+
+- learning rate : test avec 0.1, 0.01, 0.001 --> meilleurs 0.01
+- batch size : test avec 400, 100, 64, 32, 16, 8 --> meilleurs 8
+
+2) Modification de l'architecture du réseau de neurones 
+
+- ajout de 3 couches de Dropout 
+- ajout de 1 couche de MaxPool2D
+- ajout de 2 couches de BatchNorm2d
+
+3) Egalisation du nombre d'images par classe 
+
+Le nombre d'images n'était pas égale entre les classes, j'ai égalisé le nombre d'images à 8000 par classes.
+
+4) Amélioration de la normalisation 
+
+La normalisation est faite avec transforms.Normalize.
+
+Score finale : 99.93% d'accuracy, avec 3 erreurs et environ 9 min de temps d'entrainement.
+
+Correct predictions:  4674 of 4677
+Confusion Matrix:
+[[770   0   0   2   0   0]
+ [  0 805   0   0   0   0]
+ [  0   0 783   0   0   0]
+ [  0   0   0 781   0   0]
+ [  0   0   0   0 777   0]
+ [  0   0   1   0   0 758]]
+['Hand', 'BreastMRI', 'ChestCT', 'HeadCT', 'AbdomenCT', 'CXR']
