@@ -12,7 +12,7 @@ classnames = ['Hand', 'BreastMRI', 'ChestCT', 'HeadCT', 'AbdomenCT', 'CXR']
 def transform_image(image_load) -> Tensor:
     my_transforms = transforms.Compose([
         transforms.Grayscale(),
-        transforms.Resize(64),
+        transforms.Resize((64,64)),
         transforms.ToTensor(),
         transforms.Normalize((0.5,), (0.5,))])
     image = Image.open(image_load)

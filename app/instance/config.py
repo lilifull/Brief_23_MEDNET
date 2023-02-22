@@ -1,1 +1,1 @@
-MODEL_PATH = 'app_folder/mednet_app/models/cnn_model.pt'
+MODEL_PATH = 'app/mednet_app/models/cnn_model.pt'
