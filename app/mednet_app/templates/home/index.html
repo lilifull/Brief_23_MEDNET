@@ -1,10 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>Choisis un image médicale et l'application va deviner de quel organe il sagit !</p>
-    <p>Formats d'image accéptés : png et jpeg</p>
-<form method="POST" action="/predict" enctype="multipart/form-data">
-    <p><input type="file" name="image"></p>
-    <p><input type="submit" value="Predict"></p>
-</form>
+  <form class="section-side-margins" method="POST" action="/" enctype="multipart/form-data">
+      <input id="file" class="choose-files-input" type="file" name="image_file" accept=".png, .jpg, .jpeg" multiple></p>
+      <label button for="file" class="manage-files-input">
+        <span button class="button">1. Choose files</span>
+        <span><img src="{{ url_for('static', filename='icons/choose.png') }}" style="height: 20px" alt="Choose files"></span>
+      </label>
+      <button class="manage-files-input" type="submit">
+        <span>2. Upload images</span>
+        <span><img src="{{ url_for('static', filename='icons/upload.png') }}" style="height: 20px" alt="Choose files"></span>
+      </button>
+  </form>
+  <hr></hr>
+    {% if filenames %}
+      <div class="uploaded-images-container">
+        {% for filename in filenames %}
+        <div class="uploaded-image-container">
+          <img src="{{ url_for('uploads.get_file', filename=filename) }}" style="height:64px">
+          <div class="uploaded-image-buttons-container">
+            <form method="POST" action="{{ url_for('predict.predict_image', filename=filename) }}">
+              <button class="uploaded-image-button predict-button clickable" type="submit"><img src="{{ url_for('static', filename='icons/predict.png') }}" style="height: 25px" alt="Predict"></button>
+            </form>
+            <form method="POST" action="{{ url_for('uploads.delete_file', filename=filename) }}">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="uploaded-image-button clickable" type="submit"><img src="{{ url_for('static', filename='icons/delete.png') }}" style="height: 25px" alt="Delete"></button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <hr></hr>
+      <div class="all-images-handling-container">
+        <form method="POST" action="/predict">
+            <button  class="all-images-handling-button predict-all-button clickable" type="submit">
+              <span>Predict all</span>
+              <span><img src="{{ url_for('static', filename='icons/predict-white.png') }}" style="height: 20px" alt="Predict-all"></span>
+            </button>
+        </form>
+        <form method="POST" action="/uploads">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="all-images-handling-button delete-all-button clickable" type="submit">
+            <span>Remove all</span>
+            <span><img src="{{ url_for('static', filename='icons/delete-white.png') }}" style="height: 20px" alt="Remove-all"></span>
+          </button>
+        </form>
+      </div>
+    {% else %}
+      <div class="no-images-uploaded">No images uploaded</div>
+    {% endif %}
+  <hr></hr>
 {% endblock %}

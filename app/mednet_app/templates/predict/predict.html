@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Prédiction</h2>
-    <div class="predict">
-        <p>ID: {{class_id}}</p>
-        <p>Classe: {{class_name}}</p>
+    <h2>Predictions</h2>
+    <div class="predictions-container">
+        {% for result in results %}
+            <div class="predict-result-container">
+                <div>
+                    <img src="{{ url_for('uploads.get_file', filename=result.filename) }}" style="height: 64px">
+                </div>
+                <div class="result-stats">
+                    <div>ID: {{result.class_id}}</div>
+                    <div>Class: {{result.class_name}}</div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    
-    <a href="{{ url_for('home.index')}}">home</a>
+    <a class="home-link" href="{{ url_for('home.index') }}">
+        <img src="{{ url_for('static', filename='icons/home.png') }}" alt="Home" width="32px">
+        <div>Home</div>
+    </a>
 {% endblock %}
