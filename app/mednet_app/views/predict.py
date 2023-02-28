@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, send_from_directory, current_app, request, url_for
+from flask import Blueprint, redirect, send_from_directory, current_app, request, url_for, render_template
 from PIL import Image
 import torch
 from torchvision import transforms
