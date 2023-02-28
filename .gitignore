@@ -7,7 +7,9 @@
 # uploaded images
 mednet_app/static/uploads/*
 # remove jupyter_notebook unecessary files
-Medical-MNIST-Classification/images
-Medical-MNIST-Classification/resized
-Medical-MNIST-Classification/hints.txt
-Medical-MNIST-Classification/.ipynb_checkpoints
+Notebooks_Data/Medical-MNIST-Classification/images
+Notebooks_Data/Medical-MNIST-Classification/resized
+Notebooks_Data/Medical-MNIST-Classification/hints.txt
+Notebooks_Data/Medical-MNIST-Classification/.ipynb_checkpoints
+*.ipynb_checkpoints
+
