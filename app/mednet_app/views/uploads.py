@@ -1,5 +1,5 @@
 from ..utils.file_manager import FileManager
-from flask import Blueprint, redirect, request, send_from_directory, current_app, url_for
+from flask import Blueprint, redirect, send_from_directory, current_app, request, url_for
 
 bp = Blueprint('uploads', __name__, url_prefix='/uploads')
 

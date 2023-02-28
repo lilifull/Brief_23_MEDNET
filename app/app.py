@@ -1,6 +1,6 @@
 from mednet_app import create_app
 
-# Create the Flask app instance using the application factory pattern
+#  Create the Flask app instance using the application factory pattern
 app = create_app()
 
 if __name__ == '__main__':

@@ -45,3 +45,4 @@ class FileManager:
     def delete_all_files(self):
         for filename in os.listdir(self.upload_path):
             self.delete_file(filename)
+            

@@ -1,5 +1,5 @@
 from ..utils.file_manager import FileManager
-from flask import Blueprint, render_template, request, abort, redirect, url_for, current_app
+from flask import Blueprint, redirect, send_from_directory, current_app, request, url_for
 
 bp = Blueprint('home', __name__)
 

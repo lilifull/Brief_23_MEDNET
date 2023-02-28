@@ -8,7 +8,7 @@ from .views.uploads import bp as bp_uploads
 import pathlib
 
 def create_app(app_config=None):
-    # create and configure the app
+    #  create and configure the app
     app = Flask(__name__, instance_relative_config=True)
 
     if app_config is None:
